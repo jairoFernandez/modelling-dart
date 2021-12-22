@@ -1,0 +1,29 @@
+@startuml
+set namespaceSeparator ::
+
+class "mi_super_motor::motor::motor.dart::Motor" {
+  -double? _gasolina
+  +double PORCENTAJE_DE_PASO_DE_GASOLINA
+  -Culata? _culata
+  +void encender()
+  +void apagar()
+  -void _inyectar()
+  -void _comprimir()
+  -void _explosion()
+  -void _escapada()
+}
+
+"mi_super_motor::motor::motor.dart::Motor" o-- "mi_super_motor::motor::culata.dart::Culata"
+
+class "mi_super_motor::motor::inyector.dart::Inyector" {
+  +double? pasarGasolina()
+}
+
+class "mi_super_motor::motor::culata.dart::Culata" {
+  -List<Inyector>? _inyectores
+  +double? inyectar()
+  -Inyector _generarInyectorRandom()
+}
+
+
+@enduml
